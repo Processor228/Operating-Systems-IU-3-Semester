@@ -1,0 +1,33 @@
+WebStorm-223.7571.168
+images
+System Volume Information
+avast! sandbox
+clion
+PyPro
+InteliJava
+IdeaProjects
+postman-linux-x64
+VirtualBox VMs
+snap
+testDir
+projects
+IU Materials to leak
+Просто Книги
+ros_env
+booksOnCode
+UR_MANIPULATOR
+PycharmProjects
+Documents
+ultimate_CP_dir
+DockPlay
+Videos
+WebstormProjects
+Modern CMake for C++ Discover a better approach to building, testing, and packaging your software (Rafal Swidzinski) (Z-Library).pdf
+newWords
+Filippov.pdf
+My_Resume.pdf
+Modern Operating Systems (Andrew S. Tanenbaum, Herbert Bos).pdf
+Современные операционные системы (Эндрю Таненбаум,Х. Бос (Авт.) А. Леонтьева etc.).pdf
+Pictures
+CLionProjects
+Downloads

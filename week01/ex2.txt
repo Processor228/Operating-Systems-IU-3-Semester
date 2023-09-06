@@ -1,0 +1,10 @@
+ 2031  ls /usr/bin/
+ 2032  ls /usr/bin/ | sort -r
+ 2033  ls /usr/bin/ | grep gcc |sort -r 
+ 2034  /bin/bash /home/max/CLionProjects/C_OS_labs/week01/ex1.sh
+ 2035  /bin/bash /home/max/CLionProjects/C_OS_labs/week01/ex2.sh
+ 2036  history | tail -n 10 > ex2.txt 
+ 2037  bash ex2.sh 
+ 2038  sudo bash ex2.sh
+ 2039  /bin/bashn /home/max/CLionProjects/C_OS_labs/week01/ex2.sh
+ 2040  /bin/bash /home/max/CLionProjects/C_OS_labs/week01/ex2.sh
