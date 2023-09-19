@@ -27,9 +27,12 @@ long long tribonacci(int n) {
 }
 
 int main() {
-    int n;
-    fscanf(stdin, "%d", &n);
-    printf("%lld", tribonacci(n));
+//    int n;
+//    fscanf(stdin, "%d", &n);
+//    printf("%lld", tribonacci(n));
+
+    printf("%lld\n", tribonacci(4));
+    printf("%lld\n", tribonacci(36));
 
     return EXIT_SUCCESS;
 }
