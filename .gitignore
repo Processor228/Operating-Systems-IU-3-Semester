@@ -4,4 +4,5 @@ tst.c
 week02/ex1
 CMakeLists.txt
 cmake-build-debug
-
+week03/ex3
+week03/ex4
