@@ -90,15 +90,17 @@ int main () {
     struct File ex3_1_c = {
             0,
             "ex3_1.c",
-            90,
-                "int printf(const char * format, ...);"
+            0,
             };
     struct File ex3_2_c = {
             0,
             "ex3_2.c",
-            90,
-            "//This is a comment in C language"
+            0,
     };
+
+    overwrite_to_file(&ex3_1_c, "int printf(const char * format, ...);");
+    overwrite_to_file(&ex3_2_c, "//This is a comment in C language");
+
     add_file(&ex3_1_c, &home);
     add_file(&ex3_2_c, &home);
     append_to_file(bin.files[0], "Bourne Again Shell!!");
@@ -107,7 +109,6 @@ int main () {
     printp_file(&bash);
     printp_file(&ex3_1_c);
     printp_file(&ex3_2_c);
-
 
     // here i do not free memory, since everything is allocated on the stack.
 
