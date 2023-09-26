@@ -23,7 +23,7 @@ double area_triangle(struct Point a, struct Point b, struct Point c) {
 
 
 int main () {
-    struct Point A = {2.6, 6};
+    struct Point A = {2.5, 6};
     struct Point B = {1, 2.2};
     struct Point C = {10, 6};
 

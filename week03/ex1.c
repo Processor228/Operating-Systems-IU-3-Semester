@@ -31,12 +31,12 @@ int main () {
      */
     printf("%p %p %p\n", &p[0], &p[1], &p[2]);
 
-    int n = 7;
+    int n = 36;
     /*
      * Now we need to store the first values of tribonacci sequence in this array to calculate it properly.
      */
     p[0] = 0;
-    p[1] = 0;
+    p[1] = 1;
     p[2] = 1;
     int result = const_tri(p, n);
     printf("%d\n", result);

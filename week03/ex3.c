@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define FILENAME_MAX_LEN 63
+#define FILENAME_MAX_LEN 64
 #define PATH_MAX_LEN 2048
 #define FILE_DATA_MAX_LEN 1024
 #define DIRECTORIES_MAX 256
@@ -29,10 +29,12 @@ struct File {
 
 void overwrite_to_file(struct File* self, const char* data) {
     strcpy(self->name, data);
+    self->size = strlen(data);
 }
 
 void append_to_file(struct File* self, const char* data) {
     strcat(self->data, data);
+    self->size = strlen(self->data);
 }
 
 void printp_file(struct File* file) {
@@ -84,6 +86,7 @@ int main () {
     };
 
     add_file(&bash, &bin);
+
     struct File ex3_1_c = {
             0,
             "ex3_1.c",
@@ -104,6 +107,9 @@ int main () {
     printp_file(&bash);
     printp_file(&ex3_1_c);
     printp_file(&ex3_2_c);
+
+
+    // here i do not free memory, since everything is allocated on the stack.
 
     return EXIT_SUCCESS;
 }
