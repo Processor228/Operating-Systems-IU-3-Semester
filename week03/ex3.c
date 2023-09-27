@@ -29,6 +29,7 @@ struct File {
 
 void overwrite_to_file(struct File* self, const char* data) {
     strcpy(self->data, data);
+
     self->size = strlen(data);
 }
 
