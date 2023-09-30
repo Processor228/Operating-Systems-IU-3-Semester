@@ -1,0 +1,28 @@
+The following may be found in pstree in case n=3:
+        │         ├─ex3─┬─ex3─┬─ex3───ex3
+        │         │     │     └─ex3
+        │         │     ├─ex3───ex3
+        │         │     └─ex3
+
+And this in case n=5:
+        │         ├─ex3─┬─ex3─┬─ex3─┬─ex3─┬─ex3───ex3
+        │         │     │     │     │     └─ex3
+        │         │     │     │     ├─ex3───ex3
+        │         │     │     │     └─ex3
+        │         │     │     ├─ex3─┬─ex3───ex3
+        │         │     │     │     └─ex3
+        │         │     │     ├─ex3───ex3
+        │         │     │     └─ex3
+        │         │     ├─ex3─┬─ex3─┬─ex3───ex3
+        │         │     │     │     └─ex3
+        │         │     │     ├─ex3───ex3
+        │         │     │     └─ex3
+        │         │     ├─ex3─┬─ex3───ex3
+        │         │     │     └─ex3
+        │         │     ├─ex3───ex3
+        │         │     └─ex3
+
+In all these diagrams you may clearly see that processes fork themselves
+exponential number of times, since, a forked process forks (n-1) other processes
+and forked after (n-1) fork (n-2) and so on.
+
