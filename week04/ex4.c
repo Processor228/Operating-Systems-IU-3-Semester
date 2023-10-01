@@ -18,13 +18,13 @@ int main() {
     do {
         prefix(cwd, usr, input);
 
-        char cmd[SIZE];
+        char* cmd = malloc(SIZE);
         char *pch = strtok(input, " ,.");
-
         strcpy(cmd, pch);
 
+        arguments[0] = cmd;
         u_char is_background = 0;
-        int n = 0;
+        int n = 1;
         while (pch != NULL)
         {
             pch = strtok(NULL, " ,.");
@@ -35,6 +35,7 @@ int main() {
             } else {
                 if (strcmp(pch, "&") == 0) {
                     is_background = 1;
+                    continue;
                 }
             }
             char * arg = malloc(sizeof(strlen(pch)));
