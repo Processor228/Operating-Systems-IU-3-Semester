@@ -44,6 +44,11 @@ int main() {
             n++;
         }
 
+        if (strcmp(cmd, "cd") == 0) {
+            chdir(arguments[1]);
+            continue;
+        }
+
         pid_t slave = fork();
         if (slave == 0) {
             char path[SIZE] = "/bin/";
