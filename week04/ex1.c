@@ -28,11 +28,11 @@ int main() {
         printf("from child 1: %d, ppid %d\n", getpid(), getppid());
     } else {  // the parent running
         cp_2 = fork();
+        beginning_2 = clock();
         /*
          * Here I print ppid !
          */
         if (cp_2 == 0) {
-            beginning_2 = clock();
             printf("from child 2: %d, ppid %d\n", getpid(), getppid());
         }
     }
@@ -41,19 +41,19 @@ int main() {
 
     if (cp_1 == 0) {
         clock_t time_cp_1_kia = clock();
-        printf("child 1 lived for %ld\n", time_cp_1_kia - beginning_1);
+        printf("child 1 lived for %f\n", ((float)time_cp_1_kia*1000 - (float)beginning_1*1000)/CLOCKS_PER_SEC);//*1000/CLOCKS_PER_SEC);
         exit(EXIT_SUCCESS);
     }
     if (cp_2 == 0) {
         clock_t time_cp_2_kia = clock();
-        printf("child 2 lived for %ld\n", time_cp_2_kia - beginning_2);
+        printf("child 2 lived for %f\n", ((float)time_cp_2_kia*1000 - (float)beginning_2*1000)/CLOCKS_PER_SEC);//CLOCKS_PER_SEC);
         exit(EXIT_SUCCESS);
     }
 
     wait(NULL);
     wait(NULL);
     clock_t time_parent_kia = clock();
-    printf("Parent also exits, living only %ld, and his pid actually was %d\n", time_parent_kia - beginning_parent, getpid());
+    printf("Parent also exits, living only %f, and his pid actually was %d\n", ((float)time_parent_kia*1000 - (float)beginning_parent*1000)/CLOCKS_PER_SEC, getpid());
 
     return EXIT_SUCCESS;
 }
