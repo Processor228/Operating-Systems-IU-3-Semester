@@ -42,6 +42,7 @@ int main() {
             strcpy(arg, pch);
             arguments[n] = arg;
             n++;
+
         }
 
         if (strcmp(cmd, "cd") == 0) {
