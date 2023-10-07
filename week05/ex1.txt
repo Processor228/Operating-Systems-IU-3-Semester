@@ -1,0 +1,7 @@
+We may observe that the first message will receive the first spawned subscriber.
+The second - second subscriber and so on, until all subscribers get
+a message. Then this distribution will start again in the same order, starting
+from first.
+
+We need to create n pipes, so n subscribers can access fifo simultaneously,
+not to wait for their turn to come, because of the race conditions.

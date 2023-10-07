@@ -1,0 +1,11 @@
+1)
+On single threaded process, real time is approximately equal to user time.
+There is no additional scheduling between threads needed
+
+2)
+When 2 threads deal with this problem, real time dropped to almost twice
+smaller than it was.
+
+3)
+When even more threads appear, time tends to almost 2 seconds, and
+sys time increases, since there is more time needed to await for blocked mutexes.

@@ -1,0 +1,20 @@
+As per measurements,
+1 test:
+Real time approximately equal to user time, since the system is one-threaded.
+2 test:
+Real time starts decreasing, and user time grows, it becomes even greater than actual time,
+since this only measures overall cpu time (and my computer has more than one core).
+3-5 tests:
+Same situations, user time demonstrates growth (also, I suppose due to the
+reason that thread-management also takes some time), and real time
+decays.
+
+
+
+
+
+
+
+
+
+

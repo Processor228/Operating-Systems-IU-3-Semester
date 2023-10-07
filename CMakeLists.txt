@@ -12,8 +12,15 @@ add_executable(C_OS_labs
 #       week03/ex3.c
 #        week03/ex4.c
 #        week04/ex1.c
-        week04/ex2.c
+#        week04/ex2.c
 #        week04/ex3.c
 #        week04/ex4.c
+#        ex.c
 #    experiments.c
+#        week05/channel.c
+        week05/publisher.c
+        week05/subscriber.c
+#        week05/ex2.c
+#        week05/ex3.c
+#        week05/ex4.c
         )
