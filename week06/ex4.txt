@@ -1,0 +1,27 @@
+
+The results of execution depend on quantum size:
+
+size = 2:
+Average results for this run:
+        avg_wt=9.857142
+        avg_tat=14.142858
+
+size = 4:
+Average results for this run:
+        avg_wt=9.142858
+        avg_tat=13.428572
+
+size = 6:
+Average results for this run:
+        avg_wt=9.142858
+        avg_tat=13.428572
+
+size = 10:
+Average results for this run:
+        avg_wt=8.000000
+        avg_tat=12.285714
+
+We may come to conclusion that even if RR algorithm distributes CPU time fairly between processes,
+average measurements do not exceed the previous two algorithms on the provided data.txt.
+
+But, response time dropped on most of the processes.

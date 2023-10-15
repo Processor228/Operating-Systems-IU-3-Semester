@@ -1,0 +1,50 @@
+Well, SJF is basically FCFS, but with one additional feature that process
+with minimal burst time among those sorted by arrival time is taken.
+
+As per measurements, classical FCFS demonstrates:
+process 0:       process 1:      process 2:     process 3:
+        at=5           at=7         at=20           at=3
+        bt=2           bt=6         bt=3            bt=8
+        ct=17         ct=23         ct=32           ct=14
+        wt=10         wt=10         wt=9            wt=3
+        tat=12        tat=16        tat=12          tat=11
+        rt=10         rt=10         rt=9            rt=3
+
+process 4:          process 5:      process 6:
+        at=2            at=3            at=10
+        bt=4            bt=1            bt=6
+        ct=6            ct=15           ct=29
+        wt=0            wt=11           wt=13
+        tat=4           tat=12          tat=19
+        rt=0            rt=11           rt=13
+
+data size = 7
+Average results for this run:
+        avg_wt=8.000000
+        avg_tat=12.285714
+
+In, opposite, SFJ:
+process 0:          process 1:    process 2:        process 3:
+     at=5            at=7            at=20           at=3
+     bt=2            bt=6            bt=3            bt=8
+     ct=17           ct=23           ct=32           ct=15
+     wt=10           wt=10           wt=9            wt=4
+     tat=12          tat=16          tat=12          tat=12
+     rt=10           rt=10           rt=9            rt=4
+
+process 4:          process 5:      process 6:
+        at=2            at=3            at=10
+        bt=4            bt=1            bt=6
+        ct=6            ct=7            ct=29
+        wt=0            wt=3            wt=13
+        tat=4           tat=4           tat=19
+        rt=0            rt=3            rt=13
+
+data size = 7
+Average results for this run:
+        avg_wt=7.000000
+        avg_tat=11.285714
+
+So we see that average waiting time dropped by one second, and average turnaround time also decreased,
+thus we may say that on such process data SJF is, on average, more optimal.
+

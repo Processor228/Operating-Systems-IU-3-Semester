@@ -1,0 +1,5 @@
+1) Though Tri_base was changed, and the number of triangular numbers found increased, the scheduling procedure
+didn't change and, thus, the measurements remained the same.
+
+2) If we set all processes arrival time 0, then they will be executed in order they appear in data.txt,
+sequentially. Which may not be an optimal solution at all.
