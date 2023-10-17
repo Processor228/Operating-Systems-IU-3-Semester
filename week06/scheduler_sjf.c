@@ -96,18 +96,14 @@ ProcessData find_next_process() {
         if (data[i].done) {
             continue;
         }
-        if (min_arival > data[i].at) {
-            min_arival = data[i].at;
-            min_burst = data[i].burst;
-            location = i;
-        }
-        if (min_arival == data[i].at) {
-            if (min_burst > data[i].burst) {
-                min_burst = data[i].burst;
+        if (data[i].at <= total_time) {
+            if (data[i].bt < min_burst) {
+                min_burst = data[i].bt;
                 location = i;
             }
         }
     }
+
     // if next_process did not arrive so far,
     // then we recursively call this function after incrementing total_time
     if(data[location].at > total_time){
