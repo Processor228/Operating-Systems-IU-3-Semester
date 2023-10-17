@@ -18,9 +18,15 @@ add_executable(C_OS_labs
 #        ex.c
 #    experiments.c
 #        week05/channel.c
-        week05/publisher.c
-        week05/subscriber.c
+#        week05/publisher.c
+#        week05/subscriber.c
 #        week05/ex2.c
 #        week05/ex3.c
 #        week05/ex4.c
+        week06/agent.c
+        week06/controller.c
+        week06/scheduler.c
+        week06/worker.c
+        week06/scheduler_sjf.c
+        week06/scheduler_rr.c
         )

@@ -1,4 +1,4 @@
 gcc scheduler_sjf.c -o sjf
 gcc worker.c -o wor
 
-./sjf data.txt
+./sjf "$1"

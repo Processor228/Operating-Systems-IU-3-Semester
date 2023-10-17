@@ -25,7 +25,7 @@ int main (int argc, char* argv[]) {
     for (int i = 0 ; i < n; i++)
         pipe(pipes[i]);
 //    rmdir("/tmp/ex1");
-//    mkdir("/tmp/ex1", 0777);
+    mkdir("/tmp/ex1", 0777);
 
     char path[PSIZE];
     char buffer[BUFFER_SIZE];
@@ -72,7 +72,7 @@ int main (int argc, char* argv[]) {
 
     } while (strcmp(buffer, "exit") != 0);
 
-//    rmdir("/tmp/ex1");
+    rmdir("/tmp/ex1");
 
     return EXIT_SUCCESS;
 }
