@@ -2,16 +2,16 @@ On queries.txt, presented in the lab, First-Fit outperforms all other
 algorithms significantly:
 
     FF:
-5.580570
-Throughput: 9.855624 op/sec
+0.615370
+Throughput: 89.377123 op/sec
 
     BF:
-16.983258
-Throughput: 3.238483 op/sec
+2.054725
+Throughput: 26.767572 op/sec
 
     WF:
-15.596878
-Throughput: 3.526347 op/sec
+1.784218
+Throughput: 30.825830 op/sec
 
 And BF, WF perform approximately in the same way.
 This is merely because FF doesn't iterate through all the 10^7 cells.
