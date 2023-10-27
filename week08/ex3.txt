@@ -1,0 +1,5 @@
+First, we may notice how maxrss field demonstrates process's memory usage in KB.
+
+Also, when we run ex3& and vmstat we may not notice any changes in so and si fields.
+They just stay = 0. But, when we increase number of bytes allocated in the loop
+(for example, 100MB), they start to increase.
