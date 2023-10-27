@@ -15,7 +15,7 @@ int main() {
         return EXIT_FAILURE;
     }
     FILE* random = fopen("/dev/random", "r");
-    if (file == NULL) {
+    if (random == NULL) {
         perror("FILE ERROR:");
         return EXIT_FAILURE;
     }
