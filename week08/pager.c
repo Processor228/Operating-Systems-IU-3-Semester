@@ -8,8 +8,11 @@
 #include <string.h>
 #include <signal.h>
 #include <errno.h>
+#include <sys/stat.h>
 
 #define PAGE_SIZE 16
+#define FILENAME "/tmp/ex2/pagetable"
+#define FILENAME_2 "pagetable"
 
 typedef struct PTE {
 // The page is in the physical memory (RAM)
@@ -76,7 +79,7 @@ void swap(int signal) {
     for (int RAM_frame = 0; RAM_frame < frames; RAM_frame++) {
         if (strcmp(RAM[RAM_frame], "") == 0) {  // found empty spot in RAM ?
             printf("We can allocate it to free frame %d\n", RAM_frame);
-            printf("Copy data from the disk (page=%d) to RAM(frame=%d)", page_idx, RAM_frame);
+            printf("Copy data from the disk (page=%d) to RAM(frame=%d)\n", page_idx, RAM_frame);
             strcpy(RAM[RAM_frame], DISK[page_idx]);  // pull data from DISK into RAM
             victim = RAM_frame;
             break;
@@ -96,6 +99,7 @@ void swap(int signal) {
 
         if (ptable[page_victim].dirty) {
 //            RAM[victim][rand() % (PAGE_SIZE - 3)] = 65 + (rand() % 20); // like writing into RAM.
+            DISC_ACCESSES++;
             ptable[victim].dirty = 0;
             printf("Copy data from the disk %d to RAM frame %d\n", page_victim, victim);
 //            strcpy(DISK[page_victim], RAM[victim]);
@@ -136,7 +140,9 @@ int main(int argc, char* argv[]) {
     pages = atoi(argv[1]);
     frames = atoi(argv[2]);
 
-    pt = open("pagetable", O_RDWR|O_CREAT, S_IRUSR | S_IWUSR);
+    mkdir("/tmp/ex2/", 777);
+
+    pt = open(FILENAME_2, O_RDWR|O_CREAT, S_IRUSR | S_IWUSR);
     ftruncate(pt, sizeof(PTE) * pages);
     void *addr = mmap(NULL, sizeof(PTE)*pages, PROT_READ|PROT_WRITE, MAP_SHARED, pt, 0);
     if (addr == MAP_FAILED) {

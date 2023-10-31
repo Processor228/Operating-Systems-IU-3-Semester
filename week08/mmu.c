@@ -8,6 +8,10 @@
 #include <signal.h>
 #include <stdbool.h>
 
+#define FILENAME "/tmp/ex2/pagetable"
+#define FILENAME_2 "pagetable"
+
+
 typedef struct PTE {
 // The page is in the physical memory ( RAM )
     bool valid;
@@ -55,7 +59,7 @@ int main(int argc, char* argv[]) {
     int pager_pid = atoi(argv[argc-1]);
     printf("%d", pager_pid);
     long sz = sysconf(_SC_PAGESIZE);
-    int pt = open("pagetable", O_RDWR);
+    int pt = open(FILENAME_2, O_RDWR);
     void *addr = mmap(NULL, sizeof(PTE)*pages, PROT_READ|PROT_WRITE, MAP_SHARED, pt, 0);
 
     if (addr == MAP_FAILED) {
