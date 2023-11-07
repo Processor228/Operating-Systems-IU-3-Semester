@@ -1,0 +1,16 @@
+In my implementation of TLB, it is also checked whether the page was evicted from the frame
+in the future, so using TLB we really can say that a page is in RAM. But, if it is not,
+I count it as a TLB miss.
+
+TLB miss ratio tends to paging miss ratio (In ideal). But, of course, it's size is too
+limited, and it's efficiency won't reach it.
+On data provided from gist, pages = 1000, and frames = 200:
+Hit ratio: 0.188811
+TLB miss ratio: 0.850150
+
+Additionally, the lesser frames, the more TLB miss rate, since the number of translations grows,
+and it can't store that much data.
+Same data, pages = 1000, but frames = 100:
+Hit ratio: 0.102897
+TLB miss ratio: 0.876124
+
