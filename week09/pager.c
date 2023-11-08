@@ -210,6 +210,8 @@ void swap(int signal) {
         ptable[victim_page].referenced = 0;
         ptable[victim_page].valid = false;
         ptable[victim_page].dirty = false;
+        ptable[victim_page].counter = 0;
+        ptable[victim_page].nfu_counter = 0;
     }
 
     ptable[page_requested_idx].frame = victim_frame;
