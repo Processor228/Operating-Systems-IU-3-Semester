@@ -3,7 +3,7 @@ gcc mmu.c -o mmu
 
 type=$1
 pages="1000"
-frames="800"
+frames="200"
 
 ./pager "$pages" "$frames" "$type" &
 

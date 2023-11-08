@@ -1,7 +1,14 @@
-On the data provided in the gist, the hit ratio tends to (frames/pages), for all the algorithms
+On the data provided in the gist, the hit ratio tends to (frames/pages), for all the NFU
 frames = 50, pages = 1000 Hit ratio: 0.043956
 frames = 100, pages = 1000 Hit ratio: 0.102897
 frames = 250, pages = 1000 Hit ratio: 0.226773
+
+Particular comparison of algorithm performance, when frames = 200, and pages = 1000
+Hit ratio: 0.189810 (NFU)
+Hit ratio: 0.188811 (Aging)
+Hit ratio: 0.191808 (Random)
+We may observe how random algorithm performs as good as other algorithms, even though it is simpler. However,
+the results really depend on data.
 
 However, when # of frames increases, like > 500, hit ratio stays at 0.36-0.37.5
 frames = 500 : 0.36
