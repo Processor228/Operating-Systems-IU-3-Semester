@@ -1,0 +1,17 @@
+1) If we try to modify myfile11.txt, the monitor.c will detect it with messages
+"File myfile11.txt acessed",
+"File myfile11.txt modified",
+
+because this event is triggered for both directory that we watch and the file.
+
+2) When we create a symbolic link myfile13.txt the watched directory got
+IN_CREATE event, this caused the following message to appear:
+"New file myfile13.txt created".
+Then, we modify the file /tmp/myfile1.txt and no changes been registered
+by the watched directory.
+
+This happened because this event was triggered for /tmp directory, not
+./path that monitor watches, though both files point to the same inode.
+
+3) In the end, we got 2 as the number of links to the myfile11.txt, which is logical,
+since there is also file /tmp/myfile1.txt which points to the same data.
