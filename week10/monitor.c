@@ -153,6 +153,35 @@ int main(int argc, char* argv[]) {
                 }
             }
             i += EVENT_SIZE + event->len;
+
+            /*
+             * Here we log info about the file that was engaged in event
+             */
+            printf("Stat info\n");
+            struct stat fileStat;
+            char fullpath[PATH_MAX];
+            strcpy(fullpath, path);
+            strcat(fullpath, "/");
+            strcat(fullpath, event->name);
+
+            printf("-------------------------------\n");
+            if (!stat(fullpath, &fileStat)) {
+                printf("File: %s\n", event->name);
+                printf("Size: %ld\n", fileStat.st_size);
+                printf("Permissions: %o\n", fileStat.st_mode & 0777);
+                printf("Number of links: %ld\n", fileStat.st_nlink);
+                printf("Owner: %d\n", fileStat.st_uid);
+                printf("Group: %d\n", fileStat.st_gid);
+                printf("Device: %ld\n", fileStat.st_dev);
+                printf("Inode: %ld\n", fileStat.st_ino);
+                printf("Access time: %s", ctime(&fileStat.st_atime));
+                printf("Modification time: %s", ctime(&fileStat.st_mtime));
+                printf("Change time: %s", ctime(&fileStat.st_ctime));
+                printf("-------------------------------\n");
+            } else {
+                perror("Error in stat");
+            }
+
         }
     } while (true);
 
