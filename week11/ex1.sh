@@ -10,12 +10,12 @@ loop=$(sudo losetup --find --show lofs.img)
 mkfs lofs.img # created a loop file system
 
 # mounting filesystem onto the mount point lofsdisk
-mkdir lofsdisk1
-sudo mount lofs.img lofsdisk1/ # mounting the filesystem into lofsdisk
-sudo chmod 777 lofsdisk1/ # adding permission to open and change contents of the directory
+mkdir lofsdisk
+sudo mount lofs.img lofsdisk/ # mounting the filesystem into lofsdisk
+sudo chmod 777 lofsdisk/ # adding permission to open and change contents of the directory
 
 # get inside the lofsdisk
-cd lofsdisk1/ || (echo "couldn't enter lofsdisk" && exit)
+cd lofsdisk/ || (echo "couldn't enter lofsdisk" && exit)
 
 # Add two files file1, file2 to the LOFS where file1 contains your
 # first name, and file2 contains your last name
