@@ -38,46 +38,6 @@ sys
 swapfile
 srv
 opt
-with chroot
-ex1
-.
-..
-lib64
-ex1.txt
-file2
-file1
-lost+found
-bin
-lib
-no chroot
-tmp
-etc
-sbin
-proc
-catkin_ws
-libx32
-mnt
-lib64
-run
-cdrom
-lost+found
-dev
-var
-bin
-lib
-lib32
-usr
-root
-..
-.
-boot
-home
-media
-snap
-sys
-swapfile
-srv
-opt
 
 As one can observe, with chroot command, the root directory "/" changed to lofsdisk directory, so
 the contents of it appeared to become "/".
