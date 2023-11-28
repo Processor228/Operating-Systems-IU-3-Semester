@@ -7,22 +7,18 @@
 #include <stdbool.h>
 
 int fd;
-int fd_out;
+FILE* out;
 
 typedef struct pressed {
-    bool E, X, C, A, P, L, CAPS, SHIFT;
+    bool E, X, C, A, P, L;
 } pressed;
 
-pressed pr = {false, false, false, false, false, false, false, false};
+pressed pr = {false, false, false, false, false, false};
 
 void termination() {
     close(fd);
-    close(fd_out);
+    fclose(out);
     exit(EXIT_SUCCESS);
-}
-
-void handle_CAPS(int code) {
-    pr.CAPS = !pr.CAPS;
 }
 
 void assign_flag_on_event(int code, bool value) {
@@ -45,28 +41,21 @@ void assign_flag_on_event(int code, bool value) {
         case KEY_L:
             pr.L = value;
             break;
-        case KEY_LEFTSHIFT:
-            pr.SHIFT = value;
-            break;
     }
-}
-
-bool is_uppercase() {
-    return (pr.CAPS + pr.SHIFT) % 2;
 }
 
 void check_shortcut() {
-    if (pr.P && pr.E) {
+    if (pr.P && pr.E && !pr.A && !pr.L && !pr.X && !pr.C) {
         printf("I passed the Exam!\n");
     }
-    if (pr.C && pr.A && pr.P) {
+    if (pr.C && pr.A && pr.P && !pr.X && !pr.E && !pr.L) {
         printf("Get some cappuccino!\n");
     }
-    if (pr.E && pr.X) {
+    if (!pr.C && !pr.A && !pr.P && pr.E && pr.X && !pr.L) {
         printf("E + X pressed, termination!\n");
         termination();
     }
-    if (pr.L && pr.A) {
+    if (pr.L && pr.A && !pr.P && !pr.C && !pr.X && !pr.E) {
         printf("L + A is pressed, you are going to Los-Angeles !\n");
     }
 }
@@ -82,7 +71,7 @@ void introduce_shortcuts() {
 int main () {
 
     fd =  open("/dev/input/by-path/platform-i8042-serio-0-event-kbd", O_RDONLY);
-    fd_out = open("ex1.txt", O_RDWR);
+    out = fopen("ex1.txt", "w");
 
     struct input_event event;
     introduce_shortcuts();
@@ -94,20 +83,21 @@ int main () {
             switch (event.value) {
                 case 1: // Pressed
                     printf("PRESSED: 0x%04x (%hu)\n", event.code, event.code);
+                    fprintf(out, "PRESSED: 0x%04x (%hu)\n", event.code, event.code);
                     assign_flag_on_event(event.code, true);
-                    handle_CAPS(event.code);
                     break;
                 case 0:  // released
                     printf("RELEASED: 0x%04x (%hu)\n", event.code, event.code);
+                    fprintf(out, "RELEASED: 0x%04x (%hu)\n", event.code, event.code);
                     assign_flag_on_event(event.code, false);
                     break;
                 case 2:  // repeared
                     printf("REPEATED: 0x%04x (%hu)\n", event.code, event.code);
+                    fprintf(out, "REPEATED: 0x%04x (%hu)\n", event.code, event.code);
                     break;
             }
 
             check_shortcut();
-
         }
     }
 
